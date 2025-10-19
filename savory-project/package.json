@@ -1,0 +1,40 @@
+{
+  "name": "savory-project",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "deploy": "strapi deploy"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "4.25.19",
+    "@strapi/plugin-i18n": "4.25.19",
+    "@strapi/plugin-users-permissions": "4.25.19",
+    "@strapi/provider-email-sendmail": "^5.27.0",
+    "@strapi/strapi": "4.25.19",
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "8.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "slugify": "^1.6.6",
+    "strapi-provider-email-smtp": "^1.0.3",
+    "styled-components": "5.3.3",
+    "validator": "^13.15.15"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "97205d1c-0dc5-4b76-b594-d16fa6946741"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

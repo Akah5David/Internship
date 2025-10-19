@@ -1,0 +1,138 @@
+          <ul>
+            {PASSWORD_TYPE.map((type, index) => (
+              <ShowPasswordSvg
+                key={index}
+                type={type}
+                passwordInputStyle={passwordInputStyle}
+                inputStyle={inputStyle}
+                showPassword={showPassword}
+                showPasswordHandler={showPasswordHandler}
+                passwordInputStyle={passwordInputStyle}
+                formDivStyle= {formDivStyle}
+                labelStyle= {labelStyle}
+              />
+            ))}
+          </ul>
+
+
+
+                  <div className={formDivStyle}>
+          <label htmlFor="password" className={labelStyle}>
+            Password
+          </label>
+          <div
+            className={`relative m-0 flex justify-between items-center px-2.5 border border-border ${inputStyle}`}
+          >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              defaultValue=""
+              className={passwordInputStyle}
+            />
+          </div>
+          {errors.password && (
+            <p className="text-sm text-destructive">{errors.password}</p>
+          )}
+        </div>
+        {formType === "signup" && (
+          <div className={formDivStyle}>
+            <label htmlFor="confirm-password" className={labelStyle}>
+              Confirm Password
+            </label>
+            <div
+              className={`relative m-0 flex justify-between items-center px-2.5 border border-border ${inputStyle}`}
+            >
+            </div>
+            {errors["confirm-password"] && (
+              <p className="text-sm text-destructive">
+                {errors["confirm-password"]}
+              </p>
+            )}
+          </div>
+        )}
+
+
+
+
+
+
+
+
+ <Card className="mt-8">
+        <CardHeader>
+          <CardTitle className="text-xl">Strapi Setup Instructions</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm">
+          <div>
+            <h3 className="font-semibold mb-2">1. Environment Variables</h3>
+            <p className="text-muted-foreground mb-2">
+              Add these to your .env.local file:
+            </p>
+            <pre className="bg-muted p-3 rounded-md overflow-x-auto">
+              {`STRAPI_API_URL=http://localhost:1337
+STRAPI_API_TOKEN=your-api-token-here`}
+            </pre>
+          </div>
+        </CardContent>
+      </Card>
+
+        <div>
+            <h3 className="font-semibold mb-2">2. Strapi Content-Type</h3>
+            <p className="text-muted-foreground mb-2">
+              Create a "posts" collection type with these fields:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
+              <li>title (Text, required)</li>
+              <li>excerpt (Rich Text, required)</li>
+              <li>slug (UID, required, unique)</li>
+              <li>category (Text, required)</li>
+              <li>image (Media, Single, required)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">3. Permissions</h3>
+            <p className="text-muted-foreground">
+              In Strapi Admin → Settings → Users & Permissions → Roles →
+              Authenticated:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
+              <li>Enable "create" permission for Posts</li>
+              <li>Enable "find" and "findOne" for public access</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">4. Authentication</h3>
+            <p className="text-muted-foreground mb-2">
+              To get a JWT token, make a POST request to:
+            </p>
+            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-xs">
+              {`POST http://localhost:1337/api/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "your-email@example.com",
+  "password": "your-password"
+}
+
+// Response includes: { jwt: "token-here", user: {...} }
+// Store the JWT in localStorage as "strapi_jwt"`}
+            </pre>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          

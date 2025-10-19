@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Neutrals */
+  --background: #fff8f0; /* Cream */
+  --foreground: #2e2e2e; /* Charcoal */
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+
+  /* Brand and accents */
+  --primary: #d9822b; /* Terracotta */
+  --primary-foreground: #fff8f0; /* Cream for contrast */
+  --accent: #a8bca1; /* Sage */
+  --accent-foreground: #2e2e2e; /* Charcoal */
+
+  /* Supporting */
+  --secondary: #6ba368; /* Leaf Green */
+  --secondary-foreground: #ffffff; /* Ensure contrast on green */
+  --muted: #fff8f0; /* Reuse Cream */
+  --muted-foreground: #2e2e2e; /* Reuse Charcoal */
+
+  --destructive: #d9822b; /* Reuse Terracotta */
+  --destructive-foreground: #fff8f0; /* Cream */
+
+  /* System tokens mapped to palette */
+  --border: #a8bca1; /* Sage edges */
+  --input: var(--border);
+  --ring: #6ba368; /* Leaf green focus */
+
+  /* Charts reuse palette to avoid extra colors */
+  --chart-1: #d9822b;
+  --chart-2: #6ba368;
+  --chart-3: #a8bca1;
+  --chart-4: #2e2e2e;
+  --chart-5: #fff8f0;
+
+  --radius: 0.625rem;
+
+  /* Sidebar */
+  --sidebar: var(--secondary);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Brand colors for social icons */
+  --brand-instagram: #833ab4; /* Instagram purple */
+  --brand-youtube: #ff0000; /* YouTube red */
+  --brand-substack: #ff6719; /* Substack orange */
+}
+
+.dark {
+  /* Simple dark mapping that preserves brand hues */
+  --background: #2e2e2e; /* Charcoal */
+  --foreground: #fff8f0; /* Cream */
+
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+
+  --primary: #d9822b; /* Terracotta */
+  --primary-foreground: #2e2e2e; /* Charcoal for contrast in dark */
+
+  --secondary: #6ba368; /* Leaf Green */
+  --secondary-foreground: #fff8f0; /* Cream for contrast */
+
+  --muted: #2e2e2e; /* Charcoal base */
+  --muted-foreground: #fff8f0; /* Cream text */
+
+  --accent: #a8bca1; /* Sage */
+  --accent-foreground: #2e2e2e; /* Charcoal */
+
+  --destructive: #d9822b; /* Terracotta */
+  --destructive-foreground: #fff8f0; /* Cream */
+
+  --border: #a8bca1; /* Sage */
+  --input: var(--border);
+  --ring: #6ba368; /* Leaf green */
+
+  --chart-1: #d9822b;
+  --chart-2: #6ba368;
+  --chart-3: #a8bca1;
+  --chart-4: #2e2e2e;
+  --chart-5: #fff8f0;
+
+  --sidebar: oklch(0.2 0.02 95);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Keep brand colors consistent in dark mode */
+  --brand-instagram: #833ab4;
+  --brand-youtube: #ff0000;
+  --brand-substack: #ff6719;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* map serif for headings */
+  --font-serif: var(--font-playfair);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Typography helpers */
+h1,
+h2,
+h3,
+h4 {
+  @apply font-serif;
+}
+
+/* Utility classes to color icons via currentColor */
+.text-instagram {
+  color: var(--brand-instagram);
+}
+.text-youtube {
+  color: var(--brand-youtube);
+}
+.text-substack {
+  color: var(--brand-substack);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

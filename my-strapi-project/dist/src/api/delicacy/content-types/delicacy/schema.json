@@ -1,0 +1,86 @@
+{
+    "kind": "collectionType",
+    "collectionName": "delicacies",
+    "info": {
+        "singularName": "delicacy",
+        "pluralName": "delicacies",
+        "displayName": "Delicacy"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "category": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": true,
+            "unique": false
+        },
+        "title": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": true,
+            "unique": true
+        },
+        "slug": {
+            "type": "uid",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "targetField": "title",
+            "required": false
+        },
+        "excerpt": {
+            "type": "blocks",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": true
+        },
+        "readingTime": {
+            "type": "integer",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "required": false
+        },
+        "image": {
+            "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "user": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "delicacies"
+        }
+    }
+}
