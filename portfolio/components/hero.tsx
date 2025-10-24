@@ -3,36 +3,34 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {useRef, useEffect, useState} from "react"
+import { useRef, useEffect, useState } from "react";
 
-const SKILLS = [
-  "FullStack Developer",
-  "Data Analyst",
-  "Data Scientist"
-]
-
-type SkillsState = {
-  skills: []
-}
+const SKILLS = ["FullStack Developer", "Data Analyst", "Data  Scientist"];
 
 export function Hero() {
-  const [skills, setSkills] = useState<String>();
-  const skillsRef = useRef<HTMLSpanElement>(null);
+  const [displayedSkills, setDisplayedSkills] = useState<string>("");
+  const [index, setIndex] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    
-    skillsRef.current = setInterval(() => {
-  SKILLS.map(skill =>{
-      skill.split('').map(s => {
-        setInterval(() => {
-          setSkills(prev => prev + s)
-        }, 300)
-      })
-  })
+    setDisplayedSkills("");
+    let charIndex = 0;
+    const currentSkill = SKILLS[index];
 
-    }, 1000)
+    intervalRef.current = setInterval(() => {
+      if (charIndex < currentSkill.length - 1) {
+        setDisplayedSkills((prev) => prev + currentSkill.split("")[charIndex]);
+        charIndex++;
+      } else {
+        clearInterval(intervalRef.current!);
+        setTimeout(() => {
+          setIndex((prevIndex) => (prevIndex + 1) % SKILLS.length); //move to next skill
+        }, 1000);
+      }
+    }, 500);
 
-  }, [])
+    return () => clearInterval(intervalRef.current!);
+  }, [index]);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -118,7 +116,7 @@ export function Hero() {
           variants={itemVariants}
           className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-muted-foreground text-balance"
         >
-          I build exceptional digital experiences
+          I am a {displayedSkills}
         </motion.h2>
 
         <motion.p
