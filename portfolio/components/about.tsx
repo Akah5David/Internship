@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-import { Code2, Rocket, Users } from "lucide-react"
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Code2, Rocket, Users } from "lucide-react";
 
 export function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const features = [
     {
@@ -24,7 +24,7 @@ export function About() {
       title: "User-Focused",
       description: "Creating intuitive experiences that users love",
     },
-  ]
+  ];
 
   return (
     <section id="about" className="py-32 relative overflow-hidden" ref={ref}>
@@ -35,9 +35,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-primary font-mono">01.</span> About Me
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">About Me</h2>
           <div className="w-24 h-1 bg-primary mx-auto" />
         </motion.div>
 
@@ -48,18 +46,21 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Hello! I'm a passionate fullstack developer with a love for creating beautiful, functional, and
-              user-friendly applications. My journey in web development started years ago, and I've been constantly
-              learning and evolving ever since.
+              Hello! I'm a passionate fullstack developer with a love for
+              creating beautiful, functional, and user-friendly applications. My
+              journey in web development started years ago, and I've been
+              constantly learning and evolving ever since.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I specialize in building exceptional digital experiences with modern technologies. Whether it's a
-              responsive website, a complex web application, or a RESTful API, I bring ideas to life with clean,
-              efficient code.
+              I specialize in building exceptional digital experiences with
+              modern technologies. Whether it's a responsive website, a complex
+              web application, or a RESTful API, I bring ideas to life with
+              clean, efficient code.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or
-              sharing knowledge with the developer community.
+              When I'm not coding, you can find me exploring new technologies,
+              contributing to open-source projects, or sharing knowledge with
+              the developer community.
             </p>
           </motion.div>
 
@@ -86,7 +87,9 @@ export function About() {
                   <feature.icon className="w-6 h-6 text-primary" />
                 </motion.div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {feature.title}
+                  </h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </div>
               </motion.div>
@@ -95,5 +98,5 @@ export function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }

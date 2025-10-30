@@ -1,16 +1,22 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const skillCategories = [
     {
       title: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+      ],
     },
     {
       title: "Backend",
@@ -20,7 +26,7 @@ export function Skills() {
       title: "Tools & Others",
       skills: ["Git", "Docker", "AWS", "Vercel", "CI/CD"],
     },
-  ]
+  ];
 
   return (
     <section id="skills" className="py-32 bg-secondary/30" ref={ref}>
@@ -32,7 +38,7 @@ export function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-primary font-mono">02.</span> Skills & Technologies
+            Skills & Technologies
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto" />
         </motion.div>
@@ -46,7 +52,9 @@ export function Skills() {
               transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
               className="bg-card p-8 rounded-lg border border-border"
             >
-              <h3 className="text-2xl font-bold mb-6 text-primary">{category.title}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-primary">
+                {category.title}
+              </h3>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.span
@@ -69,5 +77,5 @@ export function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

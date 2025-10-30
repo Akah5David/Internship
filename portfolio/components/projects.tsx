@@ -1,70 +1,51 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-import { ExternalLink, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { ExternalLink, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration using Stripe.",
-      image: "/modern-ecommerce-website.png",
-      tech: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
-      github: "https://github.com/yourusername/ecommerce-platform",
-      demo: "https://ecommerce-demo.vercel.app",
-    },
+const projects = [
     {
       title: "Task Management App",
       description:
-        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+        "A collaborative task management application with real-time updates, ",
       image: "/task-management-dashboard.png",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      github: "https://github.com/yourusername/task-manager",
-      demo: "https://task-manager-demo.vercel.app",
+      tech: ["React", "Tailwind", "css", "Html"],
+      github: "https://github.com/EliasAkah/full-stack/tree/master/frontend-development/React_Projects/Management_App",
+      
     },
     {
-      title: "Social Media Dashboard",
+      title: "Food Order Application",
       description:
-        "An analytics dashboard for social media metrics with data visualization, real-time updates, and customizable widgets.",
-      image: "/analytics-dashboard-dark-theme.png",
-      tech: ["Next.js", "Tailwind CSS", "Chart.js", "REST API"],
-      github: "https://github.com/yourusername/social-dashboard",
-      demo: "https://social-dashboard-demo.vercel.app",
-    },
-    {
-      title: "AI Content Generator",
-      description:
-        "An AI-powered content generation tool that helps users create blog posts, social media content, and marketing copy.",
-      image: "/ai-content-generator-interface.png",
-      tech: ["Next.js", "OpenAI API", "Prisma", "PostgreSQL"],
-      github: "https://github.com/yourusername/ai-content-generator",
-      demo: "https://ai-content-demo.vercel.app",
+        "A mini food order application that is used to practise the form submission aspect of React",
+      image: "/people-taking-photos-food.jpg",
+      tech: ["React", "Tailwind", "css", "MySQL"],
+      github: "https://github.com/EliasAkah/full-stack/tree/master/frontend-development/REACT_CONCEPTS/Food-Order-App",
+      
     },
     {
       title: "Weather Forecast App",
       description:
-        "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather information.",
-      image: "/weather-app-interface.png",
-      tech: ["React", "TypeScript", "Weather API", "Mapbox"],
-      github: "https://github.com/yourusername/weather-app",
-      demo: "https://weather-demo.vercel.app",
+        "A beautiful weather application with location-based forecasts, and detailed weather information.",
+image: "/weather-app-interface.png",
+      tech: ["javascript", "css", "Weather API", "HTML"],
+      github:
+        "https://github.com/EliasAkah/full-stack/tree/master/frontend-development/javascript%20projects/Weather_App",
     },
     {
-      title: "Portfolio CMS",
+      title: "React Meetups",
       description:
-        "A headless CMS for managing portfolio content with a modern admin interface and API for frontend consumption.",
+        "A minimal meetup management application allowing users to create, manage, and join local meetups.",
       image: "/cms-admin-interface.jpg",
-      tech: ["Next.js", "Sanity", "TypeScript", "Tailwind CSS"],
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/yourusername/portfolio-cms",
-      demo: "https://portfolio-cms-demo.vercel.app",
     },
-  ]
+  ];
 
   return (
     <section id="projects" className="py-32" ref={ref}>
@@ -76,7 +57,7 @@ export function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-primary font-mono">03.</span> Featured Projects
+            Featured Projects
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto" />
         </motion.div>
@@ -128,26 +109,36 @@ export function Projects() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-mono">
+                    <span
+                      key={tech}
+                      className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-mono"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <Button size="sm" variant="outline" asChild className="flex-1 bg-transparent">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    asChild
+                    className="flex-1 bg-transparent"
+                  >
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="w-4 h-4 mr-2" />
                       Code
-                    </a>
-                  </Button>
-                  <Button size="sm" asChild className="flex-1">
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
                     </a>
                   </Button>
                 </div>
@@ -157,5 +148,5 @@ export function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
