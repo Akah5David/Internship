@@ -1,34 +1,34 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-import { Mail, MapPin, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Contact() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com",
+      value: "22btrtcn341@jainuniversity.ac.in",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=22btrtcn341@jainuniversity.ac.in",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "+91 9901784813",
+      href: "tel:+919901784813",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Bangalore, India",
       href: "#",
     },
-  ]
+  ];
 
   return (
     <section id="contact" className="py-32 bg-secondary/30" ref={ref}>
@@ -39,9 +39,7 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-primary font-mono">04.</span> Get In Touch
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
           <div className="w-24 h-1 bg-primary mx-auto" />
         </motion.div>
 
@@ -53,8 +51,9 @@ export function Contact() {
             className="text-center mb-12"
           >
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              I'm currently looking for new opportunities and my inbox is always open. Whether you have a question or
-              just want to say hi, I'll try my best to get back to you!
+              I'm currently looking for new opportunities and my inbox is always
+              open. Whether you have a question or just want to say hi, I'll try
+              my best to get back to you!
             </p>
           </motion.div>
 
@@ -77,7 +76,9 @@ export function Contact() {
                   <info.icon className="w-6 h-6 text-primary" />
                 </motion.div>
                 <div className="text-center">
-                  <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                  <p className="text-sm text-muted-foreground mb-1">
+                    {info.label}
+                  </p>
                   <p className="font-medium">{info.value}</p>
                 </div>
               </motion.a>
@@ -90,11 +91,6 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-center"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" asChild>
-                <a href="mailto:your.email@example.com">Say Hello</a>
-              </Button>
-            </motion.div>
           </motion.div>
         </div>
 
@@ -104,10 +100,14 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-24 text-center text-muted-foreground"
         >
-          <p className="font-mono text-sm">Built with Next.js, Tailwind CSS & Framer Motion</p>
-          <p className="mt-2 text-sm">© 2025 John Developer. All rights reserved.</p>
+          <p className="font-mono text-sm">
+            Built with React, Next.js, Tailwind CSS & Framer Motion
+          </p>
+          <p className="mt-2 text-sm">
+            © 2025 David Akah. All rights reserved.
+          </p>
         </motion.footer>
       </div>
     </section>
-  )
+  );
 }

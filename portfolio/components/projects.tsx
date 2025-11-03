@@ -22,7 +22,7 @@ const projects = [
     {
       title: "Food Order Application",
       description:
-        "A mini food order application that is used to practise the form submission aspect of React",
+        "A mini food order application that is used to practice the form submission aspect of React",
       image: "/people-taking-photos-food.jpg",
       tech: ["React", "Tailwind", "css", "MySQL"],
       github: "https://github.com/EliasAkah/full-stack/tree/master/frontend-development/REACT_CONCEPTS/Food-Order-App",
@@ -95,16 +95,7 @@ image: "/weather-app-interface.png",
                   >
                     <Github className="w-6 h-6" />
                   </motion.a>
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, rotate: -5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="p-3 bg-background rounded-full"
-                  >
-                    <ExternalLink className="w-6 h-6" />
-                  </motion.a>
+
                 </motion.div>
               </div>
 

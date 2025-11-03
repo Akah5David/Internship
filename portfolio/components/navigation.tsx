@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Navigation() {
-  const navItems = ["About", "Skills", "Projects", "Contact"]
+  const navItems = ["About", "Skills", "Projects", "Contact"];
 
   return (
     <motion.nav
@@ -42,9 +42,15 @@ export function Navigation() {
 
           <div className="flex items-center gap-4">
             {[
-              { icon: Github, href: "https://github.com/yourusername" },
-              { icon: Linkedin, href: "https://linkedin.com/in/yourusername" },
-              { icon: Mail, href: "mailto:your.email@example.com" },
+              { icon: Github, href: "https://github.com/Akah5David" },
+              {
+                icon: Linkedin,
+                href: "https://www.linkedin.com/in/david-akah-b85597235/",
+              },
+              {
+                icon: Mail,
+                href: "https://mail.google.com/mail/?view=cm&fs=1&to=22btrtcn341@jainuniversity.ac.in",
+              },
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -65,5 +71,5 @@ export function Navigation() {
         </div>
       </div>
     </motion.nav>
-  )
+  );
 }

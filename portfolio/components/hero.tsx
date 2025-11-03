@@ -5,32 +5,36 @@ import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect, useState } from "react";
 
-const SKILLS = ["FullStack Developer", "Data Analyst", "Data  Scientist"];
-
 export function Hero() {
-  const [displayedSkills, setDisplayedSkills] = useState<string>("");
-  const [index, setIndex] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const jobTitles = ["Full Stack Developer", "Data Analyst", "Data Scientist"];
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    setDisplayedSkills("");
-    let charIndex = 0;
-    const currentSkill = SKILLS[index];
+    const currentTitle = jobTitles[currentTitleIndex];
+    const typingSpeed = isDeleting ? 50 : 120;
 
-    intervalRef.current = setInterval(() => {
-      if (charIndex < currentSkill.length - 1) {
-        setDisplayedSkills((prev) => prev + currentSkill.split("")[charIndex]);
-        charIndex++;
-      } else {
-        clearInterval(intervalRef.current!);
-        setTimeout(() => {
-          setIndex((prevIndex) => (prevIndex + 1) % SKILLS.length); //move to next skill
-        }, 1000);
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayedText.length < currentTitle.length) {
+        // Typing forward
+        setDisplayedText(currentTitle.slice(0, displayedText.length + 1));
+      } else if (isDeleting && displayedText.length > 0) {
+        // Deleting backward
+        setDisplayedText(currentTitle.slice(0, displayedText.length - 1));
+      } else if (!isDeleting && displayedText.length === currentTitle.length) {
+        // Pause before deleting
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && displayedText.length === 0) {
+        // Move to next word
+        setIsDeleting(false);
+        setCurrentTitleIndex((prev) => (prev + 1) % jobTitles.length);
       }
-    }, 500);
+    }, typingSpeed);
 
-    return () => clearInterval(intervalRef.current!);
-  }, [index]);
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentTitleIndex]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -107,7 +111,7 @@ export function Hero() {
           className="text-5xl md:text-2xl lg:text-3xl font-bold mb-4 text-balance"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60">
-            Hi, my name is <span className="text-pink-600">David Akah</span>
+            Hi, my name is <span className="text-blue-500">David Akah</span>
           </span>
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60"></span>
         </motion.h1>
@@ -116,7 +120,8 @@ export function Hero() {
           variants={itemVariants}
           className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-muted-foreground text-balance"
         >
-          I am a {displayedSkills}
+          A <span className="text-pink-500">{displayedText}</span>
+          {/* <span className="border-r-2 border-white ml-1 animate-blink"></span> */}
         </motion.h2>
 
         <motion.p
