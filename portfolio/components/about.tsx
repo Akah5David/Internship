@@ -46,21 +46,24 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Hello! I'm a passionate fullstack developer with a love for
-              creating beautiful, functional, and user-friendly applications. My
-              journey in web development started years ago, and I've been
-              constantly learning and evolving ever since.
+              Hi there! I'm a passionate Fullstack Developer, Data Analyst, and
+              Data Scientist dedicated to building scalable, user-friendly, and
+              data-driven applications. I love transforming ideas into impactful
+              digital experiences — from modern web apps to insightful data
+              visualizations.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I specialize in building exceptional digital experiences with
-              modern technologies. Whether it's a responsive website, a complex
-              web application, or a RESTful API, I bring ideas to life with
-              clean, efficient code.
+              I specialize in developing scalable web applications, building
+              clean RESTful APIs, and uncovering valuable insights from data
+              using modern tools and technologies. Whether it’s crafting an
+              engaging user interface, optimizing backend performance, or
+              analyzing complex datasets, I’m driven by the goal of solving
+              real-world problems through innovation and precision.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing knowledge with
-              the developer community.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              When I’m not coding or analyzing data, I’m exploring new
+              technologies, contributing to open-source projects, and sharing
+              knowledge with the tech community.
             </p>
           </motion.div>
 

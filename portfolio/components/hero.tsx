@@ -128,9 +128,8 @@ export function Hero() {
           variants={itemVariants}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed text-pretty"
         >
-          I'm a fullstack developer specializing in building scalable web
-          applications with modern technologies. Currently focused on creating
-          accessible, user-centered products.
+          Fullstack Developer | Data Analyst | Data Scientist — building
+          scalable, data-driven, and user-focused digital experiences.
         </motion.p>
 
         <motion.div

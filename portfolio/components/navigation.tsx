@@ -13,7 +13,7 @@ export function Navigation() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border"
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container  mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <motion.a
             href="#"
@@ -21,10 +21,14 @@ export function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {"<Dev />"}
+            <motion.img
+              src="/david-photo.jpg"
+              alt="David Photo"
+              className="w-8 h-8 rounded-full mx-auto  border-4 border-primary"
+            ></motion.img>
           </motion.a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden  md:flex items-center gap-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={item}
